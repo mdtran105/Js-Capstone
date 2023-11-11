@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<!-- shopping-cart31:32-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ADMIN</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Meanmenu CSS -->
+  <link rel="stylesheet" href="./css/meanmenu.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="./css/animate.css">
+  <!-- Jquery-ui CSS -->
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="./css/responsive.css">
+
+</head>
+
+<body>
+  <header class="mt-4">
+    <div class="container d-flex">
+      <div><img src="img/logo-transparent.png" width="80px" height="80px" alt="logo"></div>
+      <h2 style="color: #1d597d;" class="flex-grow-1 text-center align-self-center">ADMIN</h2>
+    </div>
+  </header>
+  <main role="main" class="">
+    <div class="container">
+      <nav class="my-3" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Admin</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+        </ol>
+      </nav>
+      <h2>PRODUCT LIST</h2>
+      <!-- Button trigger modal -->
+      <div class="row">
+        <div class="col-6">
+          <button id="btnThem" type="button" class="btn btn-warning mb-3 text-white" data-bs-toggle="modal"
+            data-bs-target="#addProdModal">
+            Add Product
+          </button>
+        </div>
+        <div class="col-6">
+          <div class="form-group row">
+            <div class="col-sm-8">
+              <input type="text" placeholder="Product name" id="name">
+            </div>
+            <div class="col-sm-4 align-self-center">
+              <button class="btn btn-outline-warning">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive prodTable">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr class="bg-warning text-white">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Screen</th>
+              <th>Back Camera</th>
+              <th>Front Camera</th>
+              <th>Image</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbodyProd">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addProdModal" tabindex="-1" aria-labelledby="addProdModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProdModalLabel">Add Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" id="productForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name">Name</label>
+                <input name="name" type="text" class="form-control" id="name" placeholder="Add name" required>
+                <div id="invalidName" class="invalid-form">
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="type">Product Type</label>
+                <select name="type" class="custom-select d-block w-100" id="type" required>
+                  <option disabled selected value="">Select type</option>
+                  <option value="Iphone">Iphone</option>
+                  <option value="Samsung">Samsung</option>
+                </select>
+                <div id="invalidType" class="invalid-feedback">
+
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="price">Price</label>
+                <input name="price" type="number" class="form-control" id="price" placeholder="Add price" value=""
+                  required>
+                <div id="invalidprice" class="invalid-feedback">
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="img">Image</label>
+                <input name="img" type="text" class="form-control" id="img" placeholder="Fill image link" value=""
+                  required>
+                <div id="invalidKM" class="invalid-feedback">
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="screen">Screen</label>
+                <input name="screen" type="text" class="form-control" id="screen"
+                  placeholder="Fill Screen specifications" value="" required>
+                <div id="invalidScreen" class="invalid-feedback">
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="frontCam">Front Camera</label>
+                <input name="frontCamera" type="text" class="form-control" id="frontCamera"
+                  placeholder="Front camera specifications" value="" required>
+                <div id="invalidFrontCam" class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="backCam">Back Camera</label>
+                <input name="backCamera" type="text" class="form-control" id="backCamera"
+                  placeholder="Back camera specifications" value="" required>
+                <div id="invalidBackCam" class="invalid-feedback">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="desc">Description</label>
+                <textarea name="desc" class="form-control" id="desc" rows="3"></textarea>
+                <div id="invalidDesc" class="invalid-form">
+                </div>
+              </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" id="btnCapNhat" onclick="updateFood()">Update</button>
+          <button type="button" class="btn btn-warning" id="btnAdd">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- jQuery-V1.12.4 -->
+  <script src="./js/jquery-1.12.4.min.js"></script>
+
+  <!-- Meanmenu js -->
+  <script src="./js/jquery.meanmenu.min.js"></script>
+
+  <!-- Main/Activator js -->
+  <script src="./js/main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+  <!-- Axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
+    integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+<!-- shopping-cart31:32-->
+
+</html>
