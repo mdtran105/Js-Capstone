@@ -899,7 +899,7 @@ textarea:focus {
 }
 
 .shop-product-area .product_desc {
-  margin: 15px 15px 0;
+  margin: 25px 15px 0;
 }
 
 .shop-product-area .add-actions {
@@ -2651,8 +2651,6 @@ textarea:focus {
   display: block;
   line-height: 1;
   padding-bottom: 15px;
-  float: right;
-  -webkit-transition: all 300ms ease-in 0s;
   transition: all 300ms ease-in 0s;
   overflow: hidden;
 }
@@ -2674,7 +2672,7 @@ textarea:focus {
 .product_desc .product_desc_info .product_name {
   color: #0363cd;
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-transform: capitalize;
@@ -2700,7 +2698,7 @@ textarea:focus {
 .featured-price-box .new-price,
 .featured-price-box .new-price-2 {
   color: #2f333a;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   padding-right: 10px;
 }
@@ -2773,12 +2771,13 @@ textarea:focus {
 }
 
 .add-actions-link li.add-cart {
-  float: left;
+  /* float: left; */
   margin: 0;
   background: #eef0f1;
   border: 1px solid #e1e1e1;
   transition: all 0.3s ease-in-out;
   width: 120px;
+  cursor: pointer;
 }
 
 .add-actions-link li:hover {
@@ -5855,7 +5854,7 @@ span.required {
   height: 30px;
   line-height: 30px;
   width: 320px;
-  z-index: 999;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 767px) {
@@ -6464,4 +6463,33 @@ span.required {
   --bs-btn-color: rgb(23, 93, 143);
   --bs-btn-font-weight: 700;
   letter-spacing: 1px;
+}
+
+#spinner {
+  height: 100vh;
+  width: 100vw;
+  background-color: #b8c22bae;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
+}
+
+.utility p {
+  line-height: 19px;
+  display: flex;
+}
+
+.utility p::before {
+  content: '●';
+  margin-right: 4px;
+  margin-bottom: 2px;
+  margin-top: -1px;
+  color: #333;
+  font-size: 10px;
+}
+
+.product_desc_info .desc {
+  color: #333;
 }

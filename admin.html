@@ -31,6 +31,7 @@
 </head>
 
 <body>
+  <div class="" id="spinner"></div>
   <header class="mt-4">
     <div class="container d-flex">
       <div><img src="img/logo-transparent.png" width="80px" height="80px" alt="logo"></div>
@@ -57,10 +58,10 @@
         <div class="col-6">
           <div class="form-group row">
             <div class="col-sm-8">
-              <input type="text" placeholder="Product name" id="name">
+              <input type="text" placeholder="Product name" id="nameSearch">
             </div>
             <div class="col-sm-4 align-self-center">
-              <button class="btn btn-outline-warning">Search</button>
+              <button class="btn btn-outline-warning" id="btnSearch">Search</button>
             </div>
           </div>
         </div>
@@ -71,11 +72,11 @@
             <tr class="bg-warning text-white">
               <th>ID</th>
               <th>Name</th>
+              <th>Image</th>
               <th>Type</th>
               <th>Screen</th>
               <th>Back Camera</th>
               <th>Front Camera</th>
-              <th>Image</th>
               <th>Description</th>
               <th>Price</th>
               <th></th>
@@ -102,73 +103,65 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="name">Name</label>
-                <input name="name" type="text" class="form-control" id="name" placeholder="Add name" required>
-                <div id="invalidName" class="invalid-form">
-                </div>
+                <input name="name" type="text" pattern="[\w ]{5,20}" class="form-control" id="name"
+                  placeholder="Add name" required>
+                <div id="invalidName" class="invalid-feedback">Please enter 5-20 character!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="type">Product Type</label>
-                <select name="type" class="custom-select d-block w-100" id="type" required>
-                  <option disabled selected value="">Select type</option>
+                <select name="type" class="form-select  d-block w-100" id="type" required>
+                  <option disabled selected value="">Select type...</option>
                   <option value="Iphone">Iphone</option>
                   <option value="Samsung">Samsung</option>
                 </select>
-                <div id="invalidType" class="invalid-feedback">
-
-                </div>
+                <div id="invalidType" class="invalid-feedback">Please choose type!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="price">Price</label>
                 <input name="price" type="number" class="form-control" id="price" placeholder="Add price" value=""
                   required>
-                <div id="invalidprice" class="invalid-feedback">
-                </div>
+                <div id="invalidprice" class="invalid-feedback">Only accept number!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="img">Image</label>
-                <input name="img" type="text" class="form-control" id="img" placeholder="Fill image link" value=""
-                  required>
-                <div id="invalidKM" class="invalid-feedback">
-                </div>
+                <input name="img" type="url" autocomplete="url" pattern="(http(s)?):\/\/(www\.)?.+" class="form-control"
+                  id="img" placeholder="https://images.com" value="" required>
+                <div id="invalidKM" class="invalid-feedback">Please enter link: https://...</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="screen">Screen</label>
-                <input name="screen" type="text" class="form-control" id="screen"
+                <input name="screen" type="text" pattern=".{5,20}" class="form-control" id="screen"
                   placeholder="Fill Screen specifications" value="" required>
-                <div id="invalidScreen" class="invalid-feedback">
-                </div>
+                <div id="invalidScreen" class="invalid-feedback">Please enter 5-20 character!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="frontCam">Front Camera</label>
-                <input name="frontCamera" type="text" class="form-control" id="frontCamera"
+                <input name="frontCamera" type="text" pattern=".{4,20}" class="form-control" id="frontCamera"
                   placeholder="Front camera specifications" value="" required>
-                <div id="invalidFrontCam" class="invalid-feedback"></div>
+                <div id="invalidFrontCam" class="invalid-feedback">Please enter 4-20 character!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="backCam">Back Camera</label>
-                <input name="backCamera" type="text" class="form-control" id="backCamera"
+                <input name="backCamera" type="text" pattern=".{5,40}" class="form-control" id="backCamera"
                   placeholder="Back camera specifications" value="" required>
-                <div id="invalidBackCam" class="invalid-feedback">
-                </div>
+                <div id="invalidBackCam" class="invalid-feedback">Please enter 5-40 character!</div>
               </div>
               <div class="mb-3">
                 <label for="desc">Description</label>
-                <textarea name="desc" class="form-control" id="desc" rows="3"></textarea>
-                <div id="invalidDesc" class="invalid-form">
-                </div>
+                <textarea name="desc" class="form-control" pattern=".{10,60}" id="desc" rows="3" required></textarea>
+                <div id="invalidDesc" class="invalid-feedback">Please enter 10-60 character!</div>
               </div>
 
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning" id="btnCapNhat" onclick="updateFood()">Update</button>
-          <button type="button" class="btn btn-warning" id="btnAdd">ADD</button>
+          <button type="button" class="btn btn-warning d-none" id="btnUpdate">Update</button>
+          <button type="button" class="btn btn-warning" id="btnAdd">Add</button>
         </div>
       </div>
     </div>
   </div>
-
 
   <!-- jQuery-V1.12.4 -->
   <script src="./js/jquery-1.12.4.min.js"></script>

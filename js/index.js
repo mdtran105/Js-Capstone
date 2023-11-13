@@ -1,9 +1,26 @@
 import { Product, CartItem, Cart } from './model.js';
+import { turnOnLoading, renderAdmin, getProdList, renderShop, getShopProd } from './controller.js';
 
 const getEle = (selector) => document.querySelector(selector);
-const formModal = document.querySelector('#productForm');
+const getAllEle = (selector) => document.querySelectorAll(selector);
+const addForm = document.querySelector('#productForm');
+const addModal = document.querySelector('#addProdModal');
+const addProdBtn = document.getElementById('btnAdd');
+const updateBtn = document.getElementById('btnUpdate');
 let idProdEdited = null;
 
+// When hide formModal in Admin page: hide updateBtn, display addBtn, reset form
+addModal.addEventListener('hidden.bs.modal', () => {
+  addProdBtn.style.display = 'block';
+  updateBtn.style.display = 'none';
+  addForm.classList.remove('was-validated');
+  addForm.reset();
+});
+
+// First render product table
+getProdList();
+
+// Get product info from the Form modal to Add/Update
 const getProdInfo = () => {
   let prod = {};
   const elements = document.querySelectorAll(
@@ -15,76 +32,124 @@ const getProdInfo = () => {
   });
 
   return new Product(
-    prod.name,
-    prod.type,
+    prod.name.trim(),
+    prod.type.trim(),
     +prod.price,
-    prod.screen,
-    prod.backCamera,
-    prod.frontCamera,
-    prod.img,
-    prod.desc,
+    prod.screen.trim(),
+    prod.backCamera.trim(),
+    prod.frontCamera.trim(),
+    prod.img.trim(),
+    prod.desc.trim(),
   );
 };
 
-const renderAdmin = (prodList) => {
-  let htmlContent = '';
-  prodList.forEach(item => {
-    htmlContent += `
-        <tr>
-          <td>${item.id}</td>
-          <td>${item.name}</td>
-          <td>${item.type}</td>
-          <td>${item.screen}</td>
-          <td>${item.backCamera}</td>
-          <td>${item.frontCamera}</td>
-          <td style="width:100px"><img class="img-fluid" src="${item.img}" alt="product image" /> </td>
-          <td>${item.desc}</td>
-          <td>${item.price}</td>
-          <td>
-            <button class="btn btn-warning" 
-              onclick="editProd(${item.id})"
-              data-toggle="modal"
-              data-target="#exampleModal">Edit</button>
-            <button class="btn btn-danger mt-1" 
-              onclick="deleteProd(${item.id})">Delete</button>
-          </td>
-        </tr>`;
-  });
-
-  document.getElementById('tbodyProd').innerHTML = htmlContent;
-};
-
-const getProdList = () => {
-  const promise = axios({
-    url: 'https://654c2b2477200d6ba8589420.mockapi.io/phones',
-    method: 'GET'
-  });
-
-  promise.then(function (res) {
-    renderAdmin(res.data);
-  })
-    .catch(function (err) {
-      console.log(err);
+addProdBtn.onclick = () => {
+  if (!addForm.checkValidity()) {
+    addForm.classList.add('was-validated');
+  } else {
+    const prod = getProdInfo();
+    const promise = axios({
+      url: 'https://654c2b2477200d6ba8589420.mockapi.io/phones',
+      method: 'POST',
+      data: prod,
     });
+
+    promise.then(() => {
+      getProdList();
+      $('#addProdModal').modal('hide');
+    })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 };
 
-getProdList();
-
-document.getElementById('btnAdd').onclick = () => {
-  const prod = getProdInfo();
-  console.log(prod);
+window.deleteProd = (prodId) => {
+  turnOnLoading();
   const promise = axios({
-    url: 'https://654c2b2477200d6ba8589420.mockapi.io/phones',
-    method: 'POST',
-    data: prod,
+    url: `https://654c2b2477200d6ba8589420.mockapi.io/phones/${prodId}`,
+    method: 'DELETE',
   });
 
-  promise.then(function (res) {
+  promise.then(() => {
     getProdList();
-    formModal.reset();
-    $('#addProdModal').modal('hide');
   })
-    .catch(function (err) {
+    .catch((err) => {
       console.log(err);
     });
+};
+
+// Fill out the product information formModal to edit.
+window.editProd = (prodId) => {
+  idProdEdited = prodId;
+
+  const promise = axios({
+    url: `https://654c2b2477200d6ba8589420.mockapi.io/phones/${prodId}`,
+    method: 'GET',
+  });
+  promise.then((res) => {
+    updateBtn.style.display = 'block';
+    addProdBtn.style.display = 'none';
+    const prod = res.data;
+    getEle('#name').value = prod.name;
+    getEle('#type').value = prod.type;
+    getEle('#price').value = prod.price;
+    getEle('#frontCamera').value = prod.frontCamera;
+    getEle('#backCamera').value = prod.backCamera;
+    getEle('#screen').value = prod.screen;
+    getEle('#img').value = prod.img;
+    getEle('#desc').value = prod.desc;
+    addForm.classList.add('was-validated');
+  })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// Get data updated and save to api
+updateBtn.onclick = () => {
+  if (!addForm.checkValidity()) {
+    // addForm.classList.add('was-validated');
+  } else {
+    const prod = getProdInfo();
+    const promise = axios({
+      url: `https://654c2b2477200d6ba8589420.mockapi.io/phones/${idProdEdited}`,
+      method: 'PUT',
+      data: prod,
+    });
+
+    promise.then(() => {
+      getProdList();
+      $('#addProdModal').modal('hide');
+    })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+};
+
+// Search by product name
+getEle('#btnSearch').onclick = () => {
+  const nameSearch = getEle('#nameSearch').value;
+  if (!nameSearch) {
+    getProdList();
+  } else {
+    const tdName = getAllEle('#tbodyProd tr td:nth-of-type(2)');
+    const nameEle = [...tdName].find(ele => ele.textContent === nameSearch);
+    if (!nameEle) {
+      renderAdmin([]);
+    } else {
+      const prodId = nameEle.previousElementSibling.textContent;
+      const promise = axios({
+        url: `https://654c2b2477200d6ba8589420.mockapi.io/phones/${prodId}`,
+        method: 'GET',
+      });
+      promise.then((res) => {
+        renderAdmin([res.data]);
+      })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
 };
