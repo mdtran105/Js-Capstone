@@ -88,8 +88,6 @@ export const renderShop = (prodList) => {
               <div class="add-actions">
                 <ul class="add-actions-link">
                   <li class="add-cart active" onclick="addCart(${item.id})">Add to cart</li>
-                  <li><a href="" title="quick view" class="quick-view-btn" data-toggle="modal"
-                      data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -97,11 +95,10 @@ export const renderShop = (prodList) => {
         </div>
     `;
   });
-
   document.getElementById('renderDiv').innerHTML = htmlContent;
 };
 
-export const getShopProd = () => {
+export const getShopProd = (filter = 'all') => {
   turnOnLoading();
   const promise = axios({
     url: 'https://654c2b2477200d6ba8589420.mockapi.io/phones',
@@ -109,7 +106,11 @@ export const getShopProd = () => {
   });
 
   promise.then((res) => {
-    renderShop(res.data);
+    if (filter == 'all') {
+      renderShop(res.data);
+    } else {
+      renderShop(res.data.filter(item => item.type.toLowerCase() == filter));
+    }
     turnOffLoading();
   })
     .catch((err) => {
@@ -118,11 +119,61 @@ export const getShopProd = () => {
     });
 };
 
-export function renderPopupCart(prodArr){
+export function renderPopupCart(prodArr) {
   const itemCountSpan = document.querySelector('.cart-item-count');
   let len = prodArr.length;
-  if (len) {
-    itemCountSpan.textContent = len;
-    itemCountSpan.style.display = 'block';
-  }
+  itemCountSpan.textContent = len;
+
+  let htmlContent = '';
+  prodArr.forEach(item => {
+    htmlContent += `
+        <li>
+          <a class="minicart-product-image">
+            <img src="${item.img}" alt="cart products">
+          </a>
+          <div class="minicart-product-details">
+            <h6><a>${item.name}</a></h6>
+            <span>$${item.price.toLocaleString()} x ${item.quantity}</span>
+          </div>
+          <button class="close" title="Remove" onclick="removeItem(${item.id})">
+            <i class="fa fa-close"></i>
+          </button>
+        </li>
+    `;
+  });
+  document.querySelector('.minicart-product-list').innerHTML = htmlContent;
 }
+
+export function renderCartTable(cart) {
+  let htmlContent = '';
+  cart.prodArr.forEach(item => {
+    htmlContent += `
+        <tr>
+          <td class="li-product-thumbnail" style="width:150px">
+            <img class="img-fluid" src="${item.img}"
+                alt="Product Image">
+          </td>
+          <td class="li-product-name"><a>${item.name}</a></td>
+          <td class="li-product-price">
+            <span class="amount">$${item.price.toLocaleString()}</span>
+          </td>
+          <td class="quantity">
+            <div class="cart-plus-minus">
+              <input class="cart-plus-minus-box" value="${item.quantity}" type="text" id="${item.id}">
+              <div class="dec qtybutton" onclick="changeQuant('d',${item.id})"><i class="fa fa-angle-down"></i></div>
+              <div class="inc qtybutton" onclick="changeQuant('i',${item.id})"><i class="fa fa-angle-up"></i></div>
+            </div>
+          </td>
+          <td class="product-subtotal"><span class="amount">$${(cart.itemTotal(item.id)).toLocaleString()}</span></td>
+          <td class="li-product-remove">
+            <button class="close d-inline-block" title="Remove" onclick="removeItem(${item.id})">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+    `;
+  });
+  document.querySelector('#tbodyCart').innerHTML = htmlContent;
+  document.querySelector('#totalBill').textContent = `$${cart.cartTotal().toLocaleString()}`;
+}
+

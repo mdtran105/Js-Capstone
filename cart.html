@@ -63,7 +63,7 @@
         <div class="container">
           <div class="row">
             <!-- Begin Header Top Left Area -->
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-4 align-self-center">
               <div class="header-top-left">
                 <ul class="phone-wrap">
                   <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
@@ -115,7 +115,9 @@
               </div>
             </div>
             <!-- Header Top Right Area End Here -->
-            <div class="col-lg-2 col-md-2"><button class="btn btn-outline-warning d-block ms-auto">ADMIN</button></div>
+            <div class="col-lg-2 col-md-2"><a href="admin.html">
+                <button class="btn btn-outline-warning d-block ms-auto">ADMIN</button>
+              </a></div>
           </div>
         </div>
       </div>
@@ -129,7 +131,7 @@
               <div class="hb-menu">
                 <nav>
                   <ul>
-                    <li><a href="#">Home</a>
+                    <li><a href="index.html">Home</a>
                     </li>
                     <li><a href="#">Shop</a>
                     </li>
@@ -177,7 +179,7 @@
     <!-- Header Area End Here -->
 
     <!--Shopping Cart Area Strat-->
-    <div class="Shopping-cart-area pt-60 pb-60">
+    <div class="Shopping-cart-area pt-60 pb-60 mt-3">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -186,44 +188,27 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th class="li-product-remove">remove</th>
                       <th class="li-product-thumbnail">images</th>
                       <th class="cart-product-name">Product</th>
                       <th class="li-product-price">Unit Price</th>
                       <th class="li-product-quantity">Quantity</th>
                       <th class="li-product-subtotal">Total</th>
+                      <th class="li-product-remove">remove</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                      <td class="li-product-thumbnail"><a href="#"><img src="images/product/small-size/5.jpg"
-                            alt="Li's Product Image"></a></td>
-                      <td class="li-product-name"><a href="#">Accusantium dolorem1</a></td>
-                      <td class="li-product-price"><span class="amount">$46.80</span></td>
-                      <td class="quantity">
-                        <label>Quantity</label>
-                        <div class="cart-plus-minus">
-                          <input class="cart-plus-minus-box" value="1" type="text">
-                          <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                          <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                        </div>
-                      </td>
-                      <td class="product-subtotal"><span class="amount">$70.00</span></td>
-                    </tr>
-
+                  <tbody id="tbodyCart">
                   </tbody>
                 </table>
               </div>
               <div class="row">
-                <div class="col-md-5 ms-auto">
+                <div class="col-md-4 ms-auto" id="cardTotal">
                   <div class="cart-page-total">
                     <h2>Cart totals</h2>
                     <ul>
-                      <li>Subtotal <span>$130.00</span></li>
-                      <li>Total <span>$130.00</span></li>
+                      <!-- <li>Subtotal <span>$130.00</span></li> -->
+                      <li>Total <span id="totalBill">$130.00</span></li>
                     </ul>
-                    <a href="#">Proceed to checkout</a>
+                    <a id="checkOut">Proceed to checkout</a>
                   </div>
                 </div>
               </div>
@@ -429,6 +414,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
     integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module" src="./js/cart.js"></script>
 </body>
 
 <!-- shopping-cart31:32-->

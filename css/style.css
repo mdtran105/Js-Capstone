@@ -404,7 +404,7 @@ input {
   border: 2px solid #eceff8;
   height: 45px;
   box-shadow: none;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   font-size: 14px;
   color: #626262;
   width: 100%;
@@ -1808,22 +1808,23 @@ textarea:focus {
   border-radius: 2px;
   background: #e80f0f;
   color: #fff;
-  height: 45px;
+  height: 41px;
   cursor: pointer;
   display: block;
   position: relative;
-  padding: 0 15px 0 55px;
+  padding: 10px 20px 10px 20px;
 }
 
-.item-icon::before {
-  content: "\f07a";
-  position: absolute;
-  font-family: fontawesome;
-  left: 10px;
-  top: 6px;
-  display: block;
-  font-size: 20px;
+.item-icon i {
+  font-size: 23px;
+  color: #fff;
+  transition: all .5s;
 }
+
+.hm-minicart-trigger:hover i {
+  color: #fed700;
+}
+
 
 .item-text {
   position: relative;
@@ -1843,8 +1844,8 @@ textarea:focus {
 
 .cart-item-count {
   position: absolute;
-  top: -31px;
-  left: -60px;
+  top: -15px;
+  left: 47px;
   display: block;
   overflow: hidden;
   min-width: 26px;
@@ -1871,14 +1872,15 @@ textarea:focus {
   border: 1px solid #e5e5e5;
   padding: 20px;
   width: 290px;
+  transition: all 2s;
   background: #ffffff;
   text-align: left;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .hm-minicart:hover .minicart {
   display: block;
+  transition: all 2s;
 }
 
 .minicart .minicart-product-list {
@@ -1969,18 +1971,18 @@ textarea:focus {
   width: 100%;
 }
 
-.minicart .minicart-product-list li button.close {
-  -webkit-box-flex: 100;
-  -ms-flex-positive: 100;
+button.close {
   flex-grow: 100;
   background: none;
   color: #777777;
   display: block;
-  font-size: 14px;
-  z-index: 1;
+  font-size: 18px;
+  font-weight: 700;
+  z-index: 2;
+  border: 0;
 }
 
-.minicart .minicart-product-list li button.close:hover {
+button.close:hover {
   color: #fed700;
 }
 
@@ -2011,8 +2013,6 @@ textarea:focus {
   text-transform: uppercase;
   vertical-align: middle;
   text-align: center;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -o-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
   position: relative;
   z-index: 1;
@@ -2022,6 +2022,7 @@ textarea:focus {
   line-height: 50px;
   margin-top: 10px;
   height: 50px;
+  cursor: pointer;
 }
 
 .li-button:hover {
@@ -4182,7 +4183,7 @@ li.right-menu .cat-mega-menu-2>li {
 
 .table-content table td.li-product-price {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .table-content table td.li-product-stock-status span.in-stock,
@@ -4769,7 +4770,6 @@ thead {
 .table-content table td.product-subtotal {
   font-size: 16px;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
   color: #414141;
 }
 
@@ -4840,7 +4840,7 @@ thead {
 
 .cart-page-total>ul>li {
   list-style: none;
-  font-size: 15px;
+  font-size: 18px;
   color: #252525;
   padding: 10px 30px;
   border-bottom: 1px solid #ebebeb;
@@ -4859,18 +4859,19 @@ thead {
 .cart-page-total>a {
   background-color: #333;
   border: 1px solid #333;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   margin-top: 30px;
   padding: 10px 20px;
   text-transform: capitalize;
-  -webkit-transition: all 0.3s ease 0s;
+  cursor: pointer;
   transition: all 0.3s ease 0s;
 }
 
 .cart-page-total>a:hover {
   background: #fed700;
   border-color: #fed700;
+  color: #333 !important;
 }
 
 /*----------------------------------------*/
@@ -5839,7 +5840,7 @@ span.required {
 }
 
 .product-short>p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 5px 10px 0 0;
 }
 
@@ -6492,4 +6493,12 @@ span.required {
 
 .product_desc_info .desc {
   color: #333;
+}
+
+#cardTotal {
+  margin-inline-end: 150px;
+}
+
+th.sort {
+  cursor: pointer;
 }

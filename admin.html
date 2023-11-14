@@ -34,7 +34,7 @@
   <div class="" id="spinner"></div>
   <header class="mt-4">
     <div class="container d-flex">
-      <div><img src="img/logo-transparent.png" width="80px" height="80px" alt="logo"></div>
+      <div><a href="index.html"><img src="img/logo-transparent.png" width="80px" height="80px" alt="logo"></a></div>
       <h2 style="color: #1d597d;" class="flex-grow-1 text-center align-self-center">ADMIN</h2>
     </div>
   </header>
@@ -42,8 +42,8 @@
     <div class="container">
       <nav class="my-3" aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Admin</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+          <li class="breadcrumb-item"><a href="index.html">Home Shop</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Admin</li>
         </ol>
       </nav>
       <h2>PRODUCT LIST</h2>
@@ -67,10 +67,10 @@
         </div>
       </div>
       <div class="table-responsive prodTable">
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm" id="myTable2">
           <thead>
             <tr class="bg-warning text-white">
-              <th>ID</th>
+              <th onclick="sortTable(0)" class="sort">ID</th>
               <th>Name</th>
               <th>Image</th>
               <th>Type</th>
@@ -78,7 +78,7 @@
               <th>Back Camera</th>
               <th>Front Camera</th>
               <th>Description</th>
-              <th>Price</th>
+              <th onclick="sortTable(8)" class="sort">Price</th>
               <th></th>
             </tr>
           </thead>
@@ -103,9 +103,9 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="name">Name</label>
-                <input name="name" type="text" pattern="[\w ]{5,20}" class="form-control" id="name"
+                <input name="name" type="text" pattern="[\w ]{5,25}" class="form-control" id="name"
                   placeholder="Add name" required>
-                <div id="invalidName" class="invalid-feedback">Please enter 5-20 character!</div>
+                <div id="invalidName" class="invalid-feedback">Please enter 5-25 character!</div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="type">Product Type</label>
@@ -156,7 +156,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning d-none" id="btnUpdate">Update</button>
+          <button type="button" class="btn btn-warning" id="btnUpdate" style="display: none;">Update</button>
           <button type="button" class="btn btn-warning" id="btnAdd">Add</button>
         </div>
       </div>
@@ -185,7 +185,7 @@
     integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/admin.js"></script>
 </body>
 
 <!-- shopping-cart31:32-->
