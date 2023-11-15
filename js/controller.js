@@ -58,13 +58,12 @@ export const renderShop = (prodList) => {
           <div class="single-product-wrap">
             <div class="product-image">
               <a href="#">
-                <img src="${item.img}" alt="Product Image">
+                <img class="img-fluid" src="${item.img}" alt="Product Image">
               </a>
             </div>
-            <div class="product_desc">
+            <div class="product_desc mx-4 mt-4">
               <div class="product_desc_info">
                 <div class="product-review">
-                  
                   <div class="rating-box">
                     <ul class="rating">
                       <li><i class="fa fa-star"></i></li>
@@ -85,7 +84,7 @@ export const renderShop = (prodList) => {
                   <span class="new-price">$${item.price.toLocaleString()}</span>
                 </div>
               </div>
-              <div class="add-actions">
+              <div class="add-actions px-3">
                 <ul class="add-actions-link">
                   <li class="add-cart active" onclick="addCart(${item.id})">Add to cart</li>
                 </ul>
@@ -129,7 +128,7 @@ export function renderPopupCart(prodArr) {
     htmlContent += `
         <li>
           <a class="minicart-product-image">
-            <img src="${item.img}" alt="cart products">
+            <img class="img-fluid" src="${item.img}" alt="cart products">
           </a>
           <div class="minicart-product-details">
             <h6><a>${item.name}</a></h6>

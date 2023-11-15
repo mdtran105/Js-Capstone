@@ -9,21 +9,13 @@
   <title>Shopping Cart</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-  <!-- Material Design Iconic Font-V2.2.0 -->
-  <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-  <!-- Font Awesome Stars-->
-  <link rel="stylesheet" href="css/fontawesome-stars.css">
 
-  <!-- owl carousel CSS -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Slick Carousel CSS -->
-  <link rel="stylesheet" href="css/slick.css">
-
-
-  <!-- Jquery-ui CSS -->
-  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <!-- Font google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -32,9 +24,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <!-- Main Style CSS -->
-  <link rel="stylesheet" href="./css/style.css">
-  <!-- Responsive CSS -->
-  <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <link rel="stylesheet" href="./css/main.css">
 
 </head>
 
@@ -132,60 +123,52 @@
         </div>
       </div>
       <!-- Li's Breadcrumb Area End Here -->
-      <!-- Begin Mobile Menu Area -->
-      <div class="mobile-menu-area d-lg-none d-xl-none col-12">
-        <div class="container">
-          <div class="row">
-            <div class="mobile-menu">
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Menu Area End Here -->
     </header>
     <!-- Header Area End Here -->
 
     <!--Shopping Cart Area Strat-->
-    <div class="Shopping-cart-area pt-60 pb-60 mt-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <form action="#">
-              <div class="table-content table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="li-product-thumbnail">images</th>
-                      <th class="cart-product-name">Product</th>
-                      <th class="li-product-price">Unit Price</th>
-                      <th class="li-product-quantity">Quantity</th>
-                      <th class="li-product-subtotal">Total</th>
-                      <th class="li-product-remove">remove</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbodyCart">
-                  </tbody>
-                </table>
-              </div>
-              <div class="row">
-                <div class="col-md-4 ms-auto" id="cardTotal">
-                  <div class="cart-page-total">
-                    <h2>Cart totals</h2>
-                    <ul>
-                      <!-- <li>Subtotal <span>$130.00</span></li> -->
-                      <li>Total <span id="totalBill">$130.00</span></li>
-                    </ul>
-                    <a id="checkOut">Proceed to checkout</a>
+    <main>
+      <div class="Shopping-cart-area pt-60 pb-60 mt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <form action="#">
+                <div class="table-content table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="li-product-thumbnail">images</th>
+                        <th class="cart-product-name">Product</th>
+                        <th class="li-product-price">Unit Price</th>
+                        <th class="li-product-quantity">Quantity</th>
+                        <th class="li-product-subtotal">Total</th>
+                        <th class="li-product-remove">remove</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyCart">
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 ms-auto" id="cardTotal">
+                    <div class="cart-page-total">
+                      <h2>Cart totals</h2>
+                      <ul>
+                        <!-- <li>Subtotal <span>$130.00</span></li> -->
+                        <li>Total <span id="totalBill">$130.00</span></li>
+                      </ul>
+                      <a id="checkOut">Proceed to checkout</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <div class="footer">
+    <footer class="footer">
       <div class="footer-static-middle">
         <div class="container">
           <div class="footer-logo-wrap pt-50 pb-35">
@@ -325,7 +308,7 @@
         </div>
       </div>
       <!-- Footer Static Bottom Area End Here -->
-    </div>
+    </footer>
     <!-- Footer Area End Here -->
   </div>
   <!-- Body Wrapper End Here -->
