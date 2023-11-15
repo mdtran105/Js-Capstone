@@ -21,22 +21,7 @@
   <!-- Slick Carousel CSS -->
   <link rel="stylesheet" href="css/slick.css">
 
-  <!-- Venobox CSS -->
-  <link rel="stylesheet" href="css/venobox.css">
-  <!-- Nice Select CSS -->
-  <link rel="stylesheet" href="css/nice-select.css">
-  <!-- Magnific Popup CSS -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
 
-  <!-- Helper CSS -->
-  <link rel="stylesheet" href="css/helper.css">
-  <!-- Modernizr js -->
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-
-  <!-- Meanmenu CSS -->
-  <link rel="stylesheet" href="./css/meanmenu.css">
-  <!-- Animate CSS -->
-  <link rel="stylesheet" href="./css/animate.css">
   <!-- Jquery-ui CSS -->
   <link rel="stylesheet" href="./css/jquery-ui.min.css">
   <!-- Font Awesome -->
@@ -49,7 +34,7 @@
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <!-- Responsive CSS -->
-  <link rel="stylesheet" href="./css/responsive.css">
+  <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
 
 </head>
 
@@ -63,7 +48,7 @@
         <div class="container">
           <div class="row">
             <!-- Begin Header Top Left Area -->
-            <div class="col-lg-3 col-md-4 align-self-center">
+            <div class="col-md-4 align-self-center text-center">
               <div class="header-top-left">
                 <ul class="phone-wrap">
                   <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
@@ -72,65 +57,50 @@
             </div>
             <!-- Header Top Left Area End Here -->
             <!-- Begin Header Top Right Area -->
-            <div class="col-lg-7 col-md-6 align-self-center">
-              <div class="header-top-right">
-                <ul class="ht-menu">
-                  <!-- Begin Setting Area -->
-                  <li>
-                    <div class="ht-setting-trigger"><span>Setting</span></div>
-                    <div class="setting ht-setting">
-                      <ul class="ht-setting-list">
-                        <li><a href="login-register.html">My Account</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="login-register.html">Sign In</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <!-- Setting Area End Here -->
+            <div class="col-md-6 align-self-center">
+              <div class="header-top-right row justify-content-center">
+                <ul class="ht-menu ">
                   <!-- Begin Currency Area -->
                   <li>
                     <span class="currency-selector-wrapper">Currency :</span>
                     <div class="ht-currency-trigger"><span>USD $</span></div>
-                    <div class="currency ht-currency">
-                      <ul class="ht-setting-list">
-                        <li><a href="#">EUR €</a></li>
-                        <li class="active"><a href="#">USD $</a></li>
-                      </ul>
-                    </div>
                   </li>
                   <!-- Currency Area End Here -->
                   <!-- Begin Language Area -->
                   <li>
                     <span class="language-selector-wrapper">Language :</span>
                     <div class="ht-language-trigger"><span>English</span></div>
-                    <div class="language ht-language">
-                      <ul class="ht-setting-list">
-                        <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg" alt="">English</a></li>
-                        <li><a href="#"><img src="images/menu/flag-icon/2.jpg" alt="">Français</a></li>
-                      </ul>
-                    </div>
                   </li>
                   <!-- Language Area End Here -->
                 </ul>
               </div>
             </div>
             <!-- Header Top Right Area End Here -->
-            <div class="col-lg-2 col-md-2"><a href="admin.html">
+            <div class="col-md-2">
+              <a href="admin.html">
                 <button class="btn btn-outline-warning d-block ms-auto">ADMIN</button>
-              </a></div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <!-- Header Top Area End Here -->
       <!-- Begin Header Bottom Area -->
-      <div class="header-bottom mb-0 header-sticky stick d-none d-lg-block d-xl-block">
+      <div class="header-bottom mb-0 header-sticky stick">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <!-- Begin Header Bottom Menu Area -->
-              <div class="hb-menu">
+          <nav class="navbar navbar-expand-md py-0">
+            <div class="container-fluid justify-content-end">
+              <button class="navbar-toggler text-center my-1" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!-- <span class=" icon-expand fa fa-bars"></span>
+                  <span class=" icon-close fa fa-times"></span> -->
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse hb-menu" id="navbarSupportedContent">
+                <!-- Begin Header Bottom Menu Area -->
                 <nav>
-                  <ul>
+                  <ul class="navbar-nav">
                     <li><a href="index.html">Home</a>
                     </li>
                     <li><a href="#">Shop</a>
@@ -139,16 +109,14 @@
                     </li>
                     <li><a href="#">Pages</a>
                     </li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
                     <li><a href="#">Smartwatch</a></li>
-                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">About Us</a></li>
                   </ul>
                 </nav>
+                <!-- Header Bottom Menu Area End Here -->
               </div>
-              <!-- Header Bottom Menu Area End Here -->
             </div>
-          </div>
+          </nav>
         </div>
       </div>
       <!-- Header Bottom Area End Here -->
@@ -158,13 +126,12 @@
           <div class="breadcrumb-content">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li>Cart</li>
+              <li>Shopping</li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Li's Breadcrumb Area End Here -->
-
       <!-- Begin Mobile Menu Area -->
       <div class="mobile-menu-area d-lg-none d-xl-none col-12">
         <div class="container">
@@ -362,45 +329,12 @@
     <!-- Footer Area End Here -->
   </div>
   <!-- Body Wrapper End Here -->
-  <!-- jQuery-V1.12.4 -->
-  <script src="./js/jquery-1.12.4.min.js"></script>
-  <!-- Popper js -->
-  <script src="js/vendor/popper.min.js"></script>
 
-  <!-- Ajax Mail js -->
-  <script src="js/ajax-mail.js"></script>
-  <!-- Meanmenu js -->
-  <script src="./js/jquery.meanmenu.min.js"></script>
-  <!-- Wow.min js -->
-  <script src="js/wow.min.js"></script>
-  <!-- Slick Carousel js -->
-  <script src="js/slick.min.js"></script>
-  <!-- Owl Carousel-2 js -->
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- Magnific popup js -->
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <!-- Isotope js -->
-  <script src="js/isotope.pkgd.min.js"></script>
-  <!-- Imagesloaded js -->
-  <script src="js/imagesloaded.pkgd.min.js"></script>
-  <!-- Mixitup js -->
-  <script src="js/jquery.mixitup.min.js"></script>
-
-
-  <!-- Waypoints -->
-  <script src="js/waypoints.min.js"></script>
-  <!-- Barrating -->
-  <script src="js/jquery.barrating.min.js"></script>
-  <!-- Jquery-ui -->
-  <script src="js/jquery-ui.min.js"></script>
-  <!-- Venobox -->
-  <script src="js/venobox.min.js"></script>
-  <!-- Nice Select js -->
-  <script src="js/jquery.nice-select.min.js"></script>
-  <!-- ScrollUp js -->
-  <script src="js/scrollUp.min.js"></script>
-  <!-- Main/Activator js -->
-  <script src="./js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+    integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -416,6 +350,16 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script type="module" src="./js/cart.js"></script>
+
+  <script>
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 300) {
+        $('.header-sticky').addClass("sticky");
+      } else {
+        $('.header-sticky').removeClass("sticky");
+      }
+    });
+  </script>
 </body>
 
 <!-- shopping-cart31:32-->

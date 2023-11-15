@@ -155,8 +155,8 @@ getEle('#btnSearch').onclick = () => {
   }
 };
 
-window.sortTable = (n) => {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+window.sortTable = (header, n) => {
+  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable2");
   switching = true;
   // Set the sorting direction to ascending:
@@ -208,4 +208,6 @@ window.sortTable = (n) => {
       }
     }
   }
+  // Rotate arrow in header name
+  header.querySelector('i').classList.toggle("sortArrow")
 };

@@ -1,5 +1,5 @@
 export function turnOnLoading() {
-  document.getElementById('spinner').style.display = 'block';
+  document.getElementById('spinner').style.display = 'flex';
 }
 export function turnOffLoading() {
   document.getElementById('spinner').style.display = 'none';
@@ -20,11 +20,11 @@ export const renderAdmin = (prodList) => {
           <td>${item.desc}</td>
           <td>${item.price.toLocaleString()}</td>
           <td>
-            <button class="btn btn-warning" 
+            <button class="btn btn-warning d-block" 
               onclick="editProd(${item.id})"
               data-bs-toggle="modal"
               data-bs-target="#addProdModal">Edit</button>
-            <button class="btn btn-danger mt-1" 
+            <button class="btn btn-danger mt-1 d-block" 
               onclick="deleteProd(${item.id})">Delete</button>
           </td>
         </tr>`;

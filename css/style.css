@@ -2058,7 +2058,7 @@ button.close:hover {
 .hb-menu nav>ul>li {
   display: inline-block;
   position: relative;
-  padding-right: 40px;
+  padding-right: 50px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -2091,7 +2091,7 @@ button.close:hover {
   content: "\f107";
   position: absolute;
   top: 8px;
-  right: 15px;
+  right: 30px;
   font-family: fontawesome;
   font-size: 18px;
   transition: all 0.3s ease-in-out;
@@ -2280,18 +2280,16 @@ button.close:hover {
 
 /*Sticky*/
 .header-sticky.sticky {
-  background: rgba(254, 215, 0, .8);
+  background: rgba(254, 215, 0, .9);
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  -webkit-transition: all 300ms ease-in 0s;
   transition: all 300ms ease-in 0s;
   z-index: 1049;
 }
 
 .sticky {
-  -webkit-animation: 800ms ease-in-out 0s normal none 1 running slideInDown;
   animation: 800ms ease-in-out 0s normal none 1 running slideInDown;
 }
 
@@ -6501,4 +6499,65 @@ span.required {
 
 th.sort {
   cursor: pointer;
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@media screen and (max-width: 767px) {
+
+  .header-bottom,
+  .header-sticky.sticky {
+    background: white;
+  }
+
+  .hb-menu nav>ul>li:hover>a,
+  .hb-menu nav>ul>li:hover>a::after {
+    color: #fed700;
+  }
+
+  .header-top-right {
+    display: grid;
+  }
+}
+
+/* Large Desktop Device :1501px*/
+@media (min-width: 1501px) {
+
+  /*Li's Default Container*/
+  .container {
+    max-width: 1170px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/*Desktop Device : 1200px*/
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+  /*Li's Default Container*/
+  .container {
+    max-width: 1170px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.sortArrow {
+  transform: rotate(180deg);
 }
