@@ -24,10 +24,6 @@
           font-weight: 500;
           vertical-align: middle;
           white-space: nowrap;
-
-          &.sort {
-            cursor: pointer;
-          }
         }
       }
 
@@ -74,8 +70,6 @@
             height: 46px;
             text-align: center;
             width: 48px;
-            width: 48px;
-            width: 3rem;
             background: #fff;
           }
 
@@ -166,53 +160,3 @@
     }
   }
 }
-
-.sortArrow {
-  transform: rotate(180deg);
-}
-
-
-
-
-
-
-
-// .table-content table td.li-product-stock-status span.in-stock,
-// .table-content table td.li-product-stock-status span.out-stock {
-//   color: #fed700;
-//   font-size: 12px;
-//   text-transform: capitalize;
-// }
-
-// .table-content table td.li-product-stock-status span.out-stock {
-//   color: #EB3E32;
-// }
-
-// .table-content table td.li-product-add-cart a {
-//   font-size: 14px;
-//   text-transform: uppercase;
-//   background: #242424;
-//   color: #fff;
-//   padding: 10px 20px;
-//   font-weight: 700;
-//   display: inline-block;
-// }
-
-
-
-
-// @media screen and (max-width: 767px) {
-//   .table-content table td.li-product-add-cart a {
-//     font-size: 10px;
-//     padding: 7px 7px;
-//   }
-// }
-
-// .table-content table td.li-product-add-cart a:hover {
-//   background: #fed700 none repeat scroll 0 0;
-//   color: #fff;
-// }
-
-
-
-// cart Page

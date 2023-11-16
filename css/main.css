@@ -5,6 +5,7 @@ body {
   font-style: normal;
   font-weight: normal;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 a {
@@ -540,9 +541,6 @@ footer .bottom .links ul li a:hover {
   vertical-align: middle;
   white-space: nowrap;
 }
-.cart .table-content table thead th.sort {
-  cursor: pointer;
-}
 .cart .table-content table td {
   padding: 20px 10px;
   vertical-align: middle;
@@ -581,8 +579,6 @@ footer .bottom .links ul li a:hover {
   height: 46px;
   text-align: center;
   width: 48px;
-  width: 48px;
-  width: 3rem;
   background: #fff;
 }
 .cart .table-content table td .cart-plus-minus .qtybutton {
@@ -654,10 +650,6 @@ footer .bottom .links ul li a:hover {
   background: #fed700;
   border-color: #fed700;
   color: #333 !important;
-}
-
-.sortArrow {
-  transform: rotate(180deg);
 }
 
 .product .shop-top-bar {
@@ -918,4 +910,12 @@ footer .bottom .links ul li a:hover {
 .product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link button:hover {
   background: #fed700;
   border-color: #fed700;
+}
+
+.sortArrow {
+  transform: rotate(180deg);
+}
+
+.sort {
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
