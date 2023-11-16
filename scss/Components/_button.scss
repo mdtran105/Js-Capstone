@@ -1,20 +1,42 @@
-button.li-btn {
-  border: none;
-  background: #fed700;
-  color: #242424;
-  font-size: 20px;
-  width: 45px;
-  border-radius: 0 2px 2px 0;
+%styleBtn {
+  display: block;
+  @include styleBackground($main-color, 0px, currentcolor);
+  color: $text-color-main;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0 28px;
   height: 45px;
-  line-height: 45px;
-  position: absolute;
-  right: -1px;
-  top: -1px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  line-height: 29px;
+
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background: #333333;
+    color: #ffffff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    border-width: 3px 0 0;
+  }
 }
 
-button.li-btn:hover {
-  background: #333333;
-  color: #ffffff;
+.btnMain {
+  @extend %styleBtn
+}
+
+button.close {
+  @include styleBackground(none, 0px, currentcolor);
+  color: #777777;
+  font-size: 18px;
+  font-weight: 700;
+  z-index: 2;
+
+  &.close:hover {
+    color: $main-color;
+  }
 }

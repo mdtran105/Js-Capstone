@@ -147,7 +147,7 @@ thead {
   color: #333 !important;
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .table-content table td.li-product-add-cart a {
     font-size: 10px;
     padding: 7px 7px;
@@ -161,4 +161,55 @@ thead {
 
 .sortArrow {
   transform: rotate(180deg);
+}
+
+// cart Page
+.cart-plus-minus {
+  float: left;
+  margin-right: 15px;
+  position: relative;
+  width: 76px;
+  text-align: left;
+}
+
+.cart-plus-minus .cart-plus-minus-box {
+  border: 1px solid #e1e1e1;
+  color: $text-color-main;
+  height: 46px;
+  text-align: center;
+  width: 48px;
+  width: 48px;
+  width: 3rem;
+  background: #fff;
+}
+
+.cart-plus-minus .dec.qtybutton,
+.cart-plus-minus .inc.qtybutton {
+  border-bottom: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+  border-top: 1px solid #e1e1e1;
+  color: #333333;
+  cursor: pointer;
+  height: 23px;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  transition: all 0.3s ease-in-out 0s;
+  width: 28px;
+}
+
+.cart-plus-minus .dec.qtybutton:hover,
+.cart-plus-minus .inc.qtybutton:hover {
+  background: #ddd;
+}
+
+.cart-plus-minus .dec.qtybutton {
+  bottom: 0;
+  right: 0;
+}
+
+.cart-plus-minus .inc.qtybutton {
+  border-bottom: none;
+  top: 0;
+  right: 0;
 }

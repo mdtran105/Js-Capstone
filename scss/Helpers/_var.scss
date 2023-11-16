@@ -1,0 +1,29 @@
+$main-color: #fed700;
+$form-color: #eceff8;
+$text-color-main: #242424;
+
+@mixin styleBackground($bg-color, $bd-width, $bd-color) {
+  background: $bg-color;
+  border: $bd-width solid $bd-color;
+}
+
+$breakpoints: (
+  'extra-large': 1200px,
+  'large': 992px,
+  'medium': 768px,
+  'small': 576px
+);
+
+@mixin responsive($size, $screen) {
+  @if(map-has-key($map: $breakpoints, $key: $screen)) {
+    $value: map-get($map: $breakpoints, $key: $screen);
+
+    @media screen and ($size: $value) {
+      @content;
+    }
+  }
+
+  else {
+    @warn "`{$screen}` is not in breakpoints"
+  }
+}
