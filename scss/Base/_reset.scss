@@ -124,6 +124,10 @@ textarea {
   }
 }
 
+button:active {
+  transform: scale(.96);
+}
+
 .pb-60 {
   padding-bottom: 60px !important;
 }

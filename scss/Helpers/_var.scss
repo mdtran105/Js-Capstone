@@ -23,7 +23,7 @@ $breakpoints: (
     }
   }
 
-  else {
+  @else {
     @warn "`{$screen}` is not in breakpoints"
   }
 }
