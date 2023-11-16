@@ -509,19 +509,7 @@ footer .bottom .links ul li a:hover {
   text-decoration: underline;
 }
 
-#cardTotal {
-  margin-inline-end: 150px;
-}
-
-th.sort {
-  cursor: pointer;
-}
-
-.product-review {
-  border-bottom: 1px solid #ebebeb;
-}
-
-.table-content table {
+.card .table-content table {
   background: #fff none repeat scroll 0 0;
   border-color: #ebebeb;
   border-radius: 0;
@@ -531,18 +519,12 @@ th.sort {
   width: 100%;
   margin-bottom: 0;
 }
-
-thead {
+.card .table-content table thead {
   background-color: #f6f6f6;
 }
-
-.table-content table th,
-.table-content table td {
+.card .table-content table thead th {
   border-bottom: 1px solid #ebebeb;
   border-right: 1px solid #ebebeb;
-}
-
-.table-content table th {
   border-top: medium none;
   font-size: 15px;
   text-transform: capitalize;
@@ -552,27 +534,36 @@ thead {
   vertical-align: middle;
   white-space: nowrap;
 }
-
-.table-content table td {
-  border-top: medium none;
+.card .table-content table thead th.sort {
+  cursor: pointer;
+}
+.card .table-content table td {
   padding: 20px 10px;
   vertical-align: middle;
   font-size: 13px;
+  border-top: medium none;
+  border-bottom: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
 }
-
-.table-content table td.li-product-remove {
+.card .table-content table td.li-product-remove {
   font-size: 20px;
 }
-
-.table-content table td.li-product-name {
+.card .table-content table td.li-product-name {
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
 }
-
-.table-content table td.li-product-price {
+.card .table-content table td.li-product-price {
   font-size: 16px;
   font-weight: 500;
+}
+
+#cardTotal {
+  margin-inline-end: 150px;
+}
+
+.product-review {
+  border-bottom: 1px solid #ebebeb;
 }
 
 .table-content table td.li-product-stock-status span.in-stock,
