@@ -164,7 +164,7 @@
 
         &:hover {
           margin: 0 0 -75px;
-          padding: 0 0 75px;
+          padding: 0 0 60px;
           z-index: 9;
 
           &:before {
@@ -284,13 +284,12 @@
               transition: all 300ms ease-in 0s;
               width: 100%;
 
-              li {
+              button {
                 line-height: 1;
                 margin: 0 0 0 3px;
                 background: #eef0f1;
                 display: inline-block;
                 border-radius: 4px;
-                float: left;
                 height: 35px;
                 line-height: 35px;
                 width: 35px;
@@ -309,16 +308,16 @@
                   border-color: $main-color;
                 }
 
-                a {
-                  color: #a4a4a4;
-                  display: block;
-                  font-size: 17px;
-                  font-weight: 400;
-                  padding: 0;
-                  position: relative;
-                  text-align: center;
-                  transition: all 300ms ease-in 0s;
-                }
+                // a {
+                //   color: #a4a4a4;
+                //   display: block;
+                //   font-size: 17px;
+                //   font-weight: 400;
+                //   padding: 0;
+                //   position: relative;
+                //   text-align: center;
+                //   transition: all 300ms ease-in 0s;
+                // }
               }
             }
           }

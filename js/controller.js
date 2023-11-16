@@ -86,7 +86,7 @@ export const renderShop = (prodList) => {
               </div>
               <div class="add-actions px-3">
                 <ul class="add-actions-link">
-                  <li class="add-cart active" onclick="addCart(${item.id})">Add to cart</li>
+                  <button class="add-cart" onclick="addCart(${item.id})">Add to cart</button>
                 </ul>
               </div>
             </div>

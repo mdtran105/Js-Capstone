@@ -130,7 +130,7 @@ textarea:focus {
 }
 
 button:active {
-  transform: scale(0.96);
+  transform: scale(0.93);
 }
 
 .pb-60 {
@@ -174,7 +174,7 @@ button:active {
   padding: 0 28px;
   height: 45px;
   line-height: 29px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .btnMain:hover {
   background: #333333;
@@ -640,18 +640,17 @@ footer .bottom .links ul li a:hover {
 .cart #cardTotal .cart-page-total ul li:last-child {
   border-bottom: 0;
 }
-.cart #cardTotal .cart-page-total a {
+.cart #cardTotal .cart-page-total button {
   background-color: #333;
   border: 1px solid #333;
   color: #fff !important;
   display: inline-block;
   margin-top: 30px;
   padding: 10px 20px;
-  text-transform: capitalize;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
+  font-size: 14px;
+  line-height: 14px;
 }
-.cart #cardTotal .cart-page-total a:hover {
+.cart #cardTotal .cart-page-total button:hover {
   background: #fed700;
   border-color: #fed700;
   color: #333 !important;
@@ -801,7 +800,7 @@ footer .bottom .links ul li a:hover {
 }
 .product .shop-products-wrapper .shop-product-area .single-product-wrap:hover {
   margin: 0 0 -75px;
-  padding: 0 0 75px;
+  padding: 0 0 60px;
   z-index: 9;
 }
 .product .shop-products-wrapper .shop-product-area .single-product-wrap:hover:before {
@@ -898,18 +897,17 @@ footer .bottom .links ul li a:hover {
   transition: all 300ms ease-in 0s;
   width: 100%;
 }
-.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link li {
+.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link button {
   line-height: 1;
   margin: 0 0 0 3px;
   background: #eef0f1;
   display: inline-block;
   border-radius: 4px;
-  float: left;
   height: 35px;
   line-height: 35px;
   width: 35px;
 }
-.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link li.add-cart {
+.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link button.add-cart {
   margin: 0;
   background: #eef0f1;
   border: 1px solid #e1e1e1;
@@ -917,17 +915,7 @@ footer .bottom .links ul li a:hover {
   width: 120px;
   cursor: pointer;
 }
-.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link li:hover {
+.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link button:hover {
   background: #fed700;
   border-color: #fed700;
-}
-.product .shop-products-wrapper .shop-product-area .single-product-wrap .product_desc .add-actions .add-actions-link li a {
-  color: #a4a4a4;
-  display: block;
-  font-size: 17px;
-  font-weight: 400;
-  padding: 0;
-  position: relative;
-  text-align: center;
-  transition: all 300ms ease-in 0s;
 }/*# sourceMappingURL=main.css.map */

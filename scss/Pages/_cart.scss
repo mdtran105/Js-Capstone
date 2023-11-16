@@ -147,16 +147,15 @@
         }
       }
 
-      a {
+      button {
         background-color: #333;
         border: 1px solid #333;
         color: #fff !important;
         display: inline-block;
         margin-top: 30px;
         padding: 10px 20px;
-        text-transform: capitalize;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
+        font-size: 14px;
+        line-height: 14px;
 
         &:hover {
           background: #fed700;
