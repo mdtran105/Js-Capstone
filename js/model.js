@@ -49,10 +49,8 @@ export class Cart {
     return this.prodArr[prodIndex].price * this.prodArr[prodIndex].quantity;
   }
   cartTotal() {
-    let totalBill = 0;
-    this.prodArr.forEach(item => {
-      totalBill += (item.quantity * item.price);
-    });
-    return totalBill;
+    return this.prodArr.reduce((totalBill, item) =>
+      totalBill += (item.quantity * item.price)
+      , 0);
   }
 }
