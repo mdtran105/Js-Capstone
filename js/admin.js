@@ -1,5 +1,5 @@
-import { Product, CartItem, Cart } from './model.js';
-import { turnOnLoading, renderAdmin, getProdList, renderShop, getShopProd } from './controller.js';
+import { Product } from './model.js';
+import { turnOnLoading, renderAdmin, getProdList } from './controller.js';
 
 const getEle = (selector) => document.querySelector(selector);
 const getAllEle = (selector) => document.querySelectorAll(selector);
@@ -109,7 +109,7 @@ window.editProd = (prodId) => {
 // Get data updated and save to api
 updateBtn.onclick = () => {
   if (!addForm.checkValidity()) {
-    // addForm.classList.add('was-validated');
+    addForm.classList.add('was-validated');
   } else {
     const prod = getProdInfo();
     const promise = axios({
@@ -155,6 +155,7 @@ getEle('#btnSearch').onclick = () => {
   }
 };
 
+//sort table when click in price and ID header
 window.sortTable = (header, n) => {
   let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable2");

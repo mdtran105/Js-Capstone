@@ -22,8 +22,8 @@ export class CartItem {
 }
 
 export class Cart {
-  constructor(prodArr) {
-    this.prodArr = prodArr;
+  constructor() {
+    this.prodArr = new Array;
   }
   searchIndex(id) {
     return this.prodArr.findIndex(item => item.id == id);

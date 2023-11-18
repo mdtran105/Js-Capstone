@@ -118,6 +118,7 @@ export const getShopProd = (filter = 'all') => {
     });
 };
 
+// render popup display number of item in the cart
 export function renderPopupCart(prodArr) {
   const itemCountSpan = document.querySelector('.cart-item-count');
   let len = prodArr.length;

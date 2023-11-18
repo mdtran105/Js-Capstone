@@ -1,9 +1,11 @@
 import { CartItem, Cart } from './model.js';
 import { renderPopupCart, getShopProd } from './controller.js';
 
-let prodArr = JSON.parse(localStorage.getItem('prodArr_LOCAL')) || [];
-if (localStorage.getItem('prodArr_LOCAL')) {
-  prodArr = prodArr.map(item => new CartItem(
+// Initialize Cart
+const cart = new Cart();
+cart.prodArr = JSON.parse(localStorage.getItem('prodArr_LOCAL')) || [];
+if (cart.prodArr.length) {
+  cart.prodArr = cart.prodArr.map(item => new CartItem(
     item.id,
     item.name,
     item.img,
@@ -11,9 +13,11 @@ if (localStorage.getItem('prodArr_LOCAL')) {
     item.quantity,
   ));
 }
-const cart = new Cart(prodArr);
+
 const storeToLocal = () => localStorage.setItem('prodArr_LOCAL', JSON.stringify(cart.prodArr));
 
+/* When customer visit page again or reload page after adding item to cart,
+ check any update of product in cart vs API */
 if (cart.prodArr.length) {
   const promiseList = cart.prodArr.map(item => {
     return axios({
@@ -23,13 +27,13 @@ if (cart.prodArr.length) {
   });
   Promise.allSettled(promiseList).then((res) => {
     res.forEach((item, index) => {
-      if (item.status === 'fulfilled') {
+      if (item.status === 'fulfilled') {  //If item is still available in API -> update
         const product = item.value.data;
         const itemInCart = cart.prodArr[index];
         itemInCart.name = product.name;
         itemInCart.img = product.img;
         itemInCart.price = product.price;
-      } else if (item.status === 'rejected') {
+      } else if (item.status === 'rejected') { //else, delete it from Cart
         cart.prodArr.splice(index, 1);
       }
     });
@@ -40,7 +44,7 @@ if (cart.prodArr.length) {
     .catch((err) => {
       console.log(err);
     });
-} else {
+} else { //if the cart is empty, just render
   getShopProd();
   renderPopupCart(cart.prodArr);
 }
@@ -75,5 +79,5 @@ window.removeItem = (prodId) => {
   renderPopupCart(cart.prodArr);
 };
 
-// Assign function to filter product by type
+// Assign function to filter product by type button
 window.getShopProd = getShopProd;

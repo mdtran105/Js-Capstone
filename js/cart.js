@@ -1,9 +1,11 @@
 import { CartItem, Cart } from './model.js';
 import { renderCartTable } from './controller.js';
 
-let prodArr = JSON.parse(localStorage.getItem('prodArr_LOCAL')) || [];
-if (localStorage.getItem('prodArr_LOCAL')) {
-  prodArr = prodArr.map(item => new CartItem(
+// Initialize Cart
+const cart = new Cart();
+cart.prodArr = JSON.parse(localStorage.getItem('prodArr_LOCAL')) || [];
+if (cart.prodArr.length) {
+  cart.prodArr = cart.prodArr.map(item => new CartItem(
     item.id,
     item.name,
     item.img,
@@ -11,7 +13,7 @@ if (localStorage.getItem('prodArr_LOCAL')) {
     item.quantity,
   ));
 }
-const cart = new Cart(prodArr);
+
 renderCartTable(cart);
 
 const storeToLocal = () => localStorage.setItem('prodArr_LOCAL', JSON.stringify(cart.prodArr));
@@ -22,6 +24,8 @@ window.removeItem = (prodId) => {
   renderCartTable(cart);
 };
 
+
+// When customer click the check-out button, clear the Cart
 const checkOutBtn = document.getElementById('checkOut');
 checkOutBtn.onclick = () => {
   cart.prodArr = [];
